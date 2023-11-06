@@ -217,7 +217,8 @@ app.use(onSubzeroError);
 export async function init() {
     // Initialize the auth module
     await authInit('postgresql', Client, nodemailer, {
-            logFn: debug('subzero:auth'),
+        logFn: debug('subzero:auth'),
+        customEnv: env.parsed
     });
 
     // Initialize the rest module
